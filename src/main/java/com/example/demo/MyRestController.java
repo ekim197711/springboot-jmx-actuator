@@ -2,8 +2,6 @@ package com.example.demo;
 
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
-import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
-import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.jmx.export.annotation.ManagedOperation;
 import org.springframework.jmx.export.annotation.ManagedOperationParameters;
 import org.springframework.jmx.export.annotation.ManagedResource;
@@ -35,7 +33,6 @@ public class MyRestController {
         return "hello... :-) " + name;
     }
     @ManagedOperation
-    @ManagedOperationParameters()
     public String greetingsReturnCount() throws InterruptedException {
         mikes_greeting.increment();
         return "hello... :-) " + mikes_greeting.count();
